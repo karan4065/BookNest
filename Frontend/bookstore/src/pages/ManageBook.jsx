@@ -20,7 +20,7 @@ const ManageBook = () => {
   // Fetch Books
   const fetchBooks = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/book/get");
+      const res = await axios.get("https://booknest-kymy.onrender.com/book/get");
       const list = Array.isArray(res.data.books) ? res.data.books : [];
       setBooks(list);
       setFilteredBooks(list);
@@ -49,7 +49,7 @@ const ManageBook = () => {
     if (!window.confirm("Are you sure you want to delete this book?")) return;
 
     try {
-      await axios.delete(`http://localhost:3000/book/delete/${id}`);
+      await axios.delete(`https://booknest-kymy.onrender.com/book/delete/${id}`);
       setBooks(books.filter((b) => b._id !== id));
       toast.success("Book deleted successfully");
     } catch (err) {
@@ -76,7 +76,7 @@ const ManageBook = () => {
 
     try {
       await axios.put(
-        `http://localhost:3000/book/update/${editingBook}`,
+        `https://booknest-kymy.onrender.com/book/update/${editingBook}`,
         formData
       );
       fetchBooks();

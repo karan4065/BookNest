@@ -19,7 +19,7 @@ function AdminLogin() {
 
     try {
       // Adjust endpoint to your backend admin login route
-      const res = await axios.post("http://localhost:3000/admin/login", adminInfo,{withCredentials:true});
+      const res = await axios.post("https://booknest-kymy.onrender.com/admin/login", adminInfo,{withCredentials:true});
 
 
       if (res.data && res.data.admin) {

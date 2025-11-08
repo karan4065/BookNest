@@ -26,7 +26,7 @@ const Adminpage = () => {
       return;
     }
     try {
-      const res = await axios.post("http://localhost:3000/book/create", bookData);
+      const res = await axios.post("https://booknest-kymy.onrender.com/book/create", bookData);
       toast.success(res.data?.message || "Book created");
       setBookData({ name: "", price: "", category: "", image: "", title: "" });
     } catch (error) {

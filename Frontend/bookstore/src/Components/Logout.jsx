@@ -9,7 +9,7 @@ function Logout() {
   const handleLogout = async () => {
     try {
       // Call backend logout route to clear cookie
-     const res= await axios.post("http://localhost:3000/user/logout", {}, { withCredentials: true });
+     const res= await axios.post("https://booknest-kymy.onrender.com/user/logout", {}, { withCredentials: true });
 
 
       if(res){

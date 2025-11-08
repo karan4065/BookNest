@@ -69,7 +69,7 @@ function Shop() {
     const currency = "INR";
 
     try {
-      const response = await fetch("http://localhost:3000/order", {
+      const response = await fetch("https://booknest-kymy.onrender.com/order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -139,7 +139,7 @@ function Shop() {
           const body = { ...response, orderId: options.order_id };
 
           try {
-            const validateResponse = await fetch("http://localhost:3000/validate", {
+            const validateResponse = await fetch("https://booknest-kymy.onrender.com/validate", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -159,7 +159,7 @@ function Shop() {
                   status: "completed" // Mark online payments as completed
                 };
 
-                await axios.post("http://localhost:3000/product/order", completedOrderInfo);
+                await axios.post("https://booknest-kymy.onrender.com/product/order", completedOrderInfo);
 
                 const existingOrders = JSON.parse(localStorage.getItem("orderInfo")) || [];
                 existingOrders.push(completedOrderInfo);
@@ -244,7 +244,7 @@ function Shop() {
 
     try {
       // For Cash on Delivery
-      const res = await axios.post("http://localhost:3000/product/order", orderInfo);
+      const res = await axios.post("https://booknest-kymy.onrender.com/product/order", orderInfo);
       if (res.data) {
       // Store ALL orders in localStorage
       const existingOrders = JSON.parse(localStorage.getItem("orderInfo")) || [];
