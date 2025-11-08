@@ -15,9 +15,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js ",
-    "start:backend": "nodemon Backend/index.js"
-  },
+  "start": "node index.js",
+  "dev": "nodemon index.js"
+},
   "dependencies": {
     "asynckit": "^0.4.0",
     "bcrypt": "^6.0.0",
