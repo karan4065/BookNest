@@ -26,7 +26,7 @@ const Adminpage = () => {
       return;
     }
     try {
-      const res = await axios.post("https://booknest-2-k8rn.onrender.com/book/create", bookData);
+      const res = await axios.post("https://booknest-2-04op.onrender.com/book/create", bookData);
       toast.success(res.data?.message || "Book created");
       setBookData({ name: "", price: "", category: "", image: "", title: "" });
     } catch (error) {
