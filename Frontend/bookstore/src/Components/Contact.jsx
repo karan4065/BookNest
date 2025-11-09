@@ -22,7 +22,7 @@ const Contact = () => {
     };
 
     try {
-      const res = await axios.post("https://booknest-1-7v5a.onrender.com/contact/connect", contactInfo);
+      const res = await axios.post("https://booknest-2-k8rn.onrender.com/contact/connect", contactInfo);
       if (res.data) {
         toast.success("Thank you! For Your Valuable Feedback.");
         navigate(from, { replace: true });
