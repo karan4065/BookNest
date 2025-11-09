@@ -106,7 +106,7 @@ const Adminpage = () => {
 
             {/* PREVIEW */}
             <aside className="md:col-span-1 w-full">
-              <h1 className="text-xl font-bold mb-4 text-center">Preview</h1>
+              <h1 className="text-xl font-bold mb-4 mt-[-50px] text-center">Preview</h1>
 
               <div className="border p-4 rounded-md bg-gray-50 dark:bg-slate-900 dark:border-gray-600">
 
