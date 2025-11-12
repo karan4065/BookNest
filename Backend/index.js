@@ -18,10 +18,8 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-// ✅ Proper CORS setup
 const allowedOrigins = [
   "https://booknesto.netlify.app",
-  "http://localhost:5173",
 ];
 
 app.use(
