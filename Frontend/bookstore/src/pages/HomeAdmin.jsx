@@ -39,10 +39,10 @@ export default function HomeAdmin() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const booksRes = await axios.get("https://booknest-2-04op.onrender.com/book/countbooks");
+        const booksRes = await axios.get("https://booknest-3-zgsw.onrender.com/book/countbooks");
         const totalBooks = booksRes.data.length;
 
-        const ordersRes = await axios.get("https://booknest-2-04op.onrender.com/product/orders");
+        const ordersRes = await axios.get("https://booknest-3-zgsw.onrender.com/product/orders");
         const orders = ordersRes.data;
 
         const totalOrders = orders.length;

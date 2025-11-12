@@ -12,7 +12,7 @@ export default function AdmOrders() {
   const fetchOrders = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("https://booknest-2-04op.onrender.com/product/orders");
+      const res = await axios.get("https://booknest-3-zgsw.onrender.com/product/orders");
       const cancelReq = JSON.parse(localStorage.getItem("cancelRequests")) || [];
 
       // ✅ Merge cancel requests into order list
@@ -61,7 +61,7 @@ export default function AdmOrders() {
     setOrders(updated);
 
     try {
-      await axios.patch(`https://booknest-2-04op.onrender.com/product/orders/${id}`, {
+      await axios.patch(`https://booknest-3-zgsw.onrender.com/product/orders/${id}`, {
         status: newStatus,
       });
       toast.success("Order marked as completed");
@@ -83,7 +83,7 @@ export default function AdmOrders() {
     setOrders(remaining);
 
     try {
-      await axios.delete(`https://booknest-2-04op.onrender.com/product/orders/${id}`);
+      await axios.delete(`https://booknest-3-zgsw.onrender.com/product/orders/${id}`);
 
       const reqList = JSON.parse(localStorage.getItem("cancelRequests")) || [];
       const updatedReq = reqList.filter(
@@ -115,7 +115,7 @@ export default function AdmOrders() {
     setOrders(remaining);
 
     try {
-      await axios.delete(`https://booknest-2-04op.onrender.com/product/orders/${id}`);
+      await axios.delete(`https://booknest-3-zgsw.onrender.com/product/orders/${id}`);
       toast.success("Order cancelled");
     } catch (err) {
       console.error("Cancel order error:", err);
