@@ -2,6 +2,8 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import cookieParser from "cookie-parser";
+
 import bookRoute from "./routes/book_route.js";
 import userRoute from "./routes/userRoute.js";
 import adminRoute from "./routes/adminRoute.js";
@@ -9,33 +11,46 @@ import contactroute from "./routes/contact_route.js";
 import orderroute from "./routes/order_route.js";
 import Razorpay from "razorpay";
 import { createHmac } from "node:crypto";
-import cookieParser from "cookie-parser";
 
 dotenv.config();
 const app = express();
 
-// Middleware
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(cors());
+// ✅ Proper CORS setup
+const allowedOrigins = [
+  "https://booknesto.netlify.app",
+  "http://localhost:5173",
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 const PORT = process.env.PORT || 3000;
 
 // MongoDB connection
-try {
-  mongoose.connect(process.env.VITE_MongoDBURI);
-  console.log("Connected To MongoDB");
-} catch (error) {
-  console.log("MongoDB Connection Error: ", error);
-}
+mongoose
+  .connect(process.env.VITE_MongoDBURI)
+  .then(() => console.log("Connected To MongoDB"))
+  .catch((error) => console.log("MongoDB Connection Error: ", error));
 
 // Routes
 app.use("/book", bookRoute);
 app.use("/user", userRoute);
 app.use("/contact", contactroute);
 app.use("/product", orderroute);
-app.use('/admin',adminRoute);
+app.use("/admin", adminRoute);
 
 app.post("/order", async (req, res) => {
   try {
